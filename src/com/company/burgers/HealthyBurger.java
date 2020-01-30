@@ -14,10 +14,13 @@ public class HealthyBurger extends BasicBurger {
 
     @Override
     public void addCondiments(Addition... add) {
-        if (add.length > 6) {
-            System.out.println("Only 6 additions allowed");
-        } else {
-            this.additions = new ArrayList<>(Arrays.asList(add));
+        for (Addition a: add) {
+            super.additions.add(a);
+            if (super.additions.size() > 6) {
+                System.out.println("Only 6 additions allowed");
+                super.additions.remove(a);
+                break;
+            }
         }
     }
 

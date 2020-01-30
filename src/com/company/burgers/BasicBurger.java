@@ -25,13 +25,15 @@ public class BasicBurger {
     }
 
     public void addCondiments(Addition... add) {
-        if (add.length > 4) {
-            System.out.println("Only 4 additions allowed");
-        } else {
             for (Addition a: add) {
                 additions.add(a);
+                if (additions.size() > 4) {
+                    System.out.println("Only 4 additions allowed");
+                    additions.remove(a);
+                    break;
+                }
             }
-        }
+
     }
 
 
